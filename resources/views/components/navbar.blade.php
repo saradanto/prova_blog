@@ -7,7 +7,23 @@
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li><br>
+                @guest
+                    <li class="nav-item"><a class="nav-link" href="{{route('login')}}">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('register')}}">Register</a></li>
+
+                    @else
+
+
+                <li class="nav-item">
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button class="btn btn-secondary btn-sm" type="submit">Logout</button>
+                    </form>
+                </a></li>
+
+                @endguest
+
             </ul>
         </div>
     </div>
