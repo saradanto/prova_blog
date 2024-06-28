@@ -1,30 +1,23 @@
 <x-main>
 
 
-    <!-- About section-->
-    <section id="about">
-        <div class="container px-4">
-            <div class="row gx-4 justify-content-center">
-                <div class="col-lg-8">
-                    <h2>About this page</h2>
-                    <p class="lead">This is a great place to talk about your webpage. This template is purposefully unstyled so you can use it as a boilerplate or starting point for you own landing page designs! This template features:</p>
-                    <ul>
-                        <li>Clickable nav links that smooth scroll to page sections</li>
-                        <li>Responsive behavior when clicking nav links perfect for a one page website</li>
-                        <li>Bootstrap's scrollspy feature which highlights which section of the page you're on in the navbar</li>
-                        <li>Minimal custom CSS so you are free to explore your own unique design options</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Services section-->
+    <!-- Articles section-->
     <section class="bg-light" id="services">
-        <div class="container px-4">
-            <div class="row gx-4 justify-content-center">
-                <div class="col-lg-8">
-                    <h2>Services we offer</h2>
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    @foreach ($articles as $article)
+
+                    <div class="card" style="width: 18rem;">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">{{$article->title}}</h5>
+                          <p class="card-text">{{Str::limit($article->body, 200, '...')}}</p>
+                          <a href="#" class="btn btn-primary">Apri articolo</a>
+                        </div>
+                      </div>
+
+                    @endforeach
                 </div>
             </div>
         </div>

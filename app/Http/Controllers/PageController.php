@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SendEmail;
 use App\Mail\SendLetter;
+use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -11,7 +12,9 @@ class PageController extends Controller
 {
     public function welcome(){
 
-        return view('welcome');
+        $articles = Article::all();
+
+        return view('welcome', compact('articles'));
 
     }
 
