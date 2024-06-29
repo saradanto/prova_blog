@@ -5,10 +5,10 @@
     <section class="bg-light" id="services">
         <div class="container">
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 d-flex align-items-center justify-content-center">
                     @foreach ($articles as $article)
 
-                    <div class="card" style="width: 18rem;">
+                    <div class="card mx-3" style="width: 18rem;">
                         <img src="{{Storage::url($article->image)}}" class="card-img-top" alt="...">
                         <div class="card-body">
                           <h5 class="card-title">{{$article->title}}</h5>
