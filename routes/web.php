@@ -13,4 +13,4 @@ Route::get('/form', [PageController::class, 'form'])->name('form');
 
 Route::post('/send', [PageController::class, 'send'])->name('send');
 
-Route::resource('articles', ArticleController::class);
+Route::resource('articles', ArticleController::class)->middleware('auth');

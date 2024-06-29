@@ -1,5 +1,6 @@
 <x-main>
 
+
     <div class="mb-md-5 mt-md-4 pb-5">
         <form action="{{route('articles.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
