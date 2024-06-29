@@ -1,13 +1,13 @@
 <x-main>
 
     <section>
+
         @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
         @endif
 
-        @endsession
         <div class="container">
             <div class="row">
                 <div class="col-4 my-4">
@@ -41,12 +41,17 @@
                                 </td>
                                 <td>
                                     <button type="button" class="btn btn-link btn-sm btn-rounded"><a href="{{route('articles.edit', ['article'=> $article])}}"> Edit</a></button>
-                                    <button type="button" class="btn btn-link btn-sm btn-rounded">
+                                    <button type="submit" class="btn btn-link btn-sm btn-rounded">
                                         Show
                                     </button>
-                                    <button type="button" class="btn btn-link btn-sm btn-rounded">
-                                        Delete
-                                    </button>
+                                    <form action="{{route('articles.destroy', ['article' => $article])}}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-link btn-sm btn-rounded">
+                                            Delete
+                                        </button>
+                                    </form>
+
                                 </td>
                             </tr>
                         </tbody>

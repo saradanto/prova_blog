@@ -67,8 +67,19 @@ class ArticleController extends Controller
 
     }
 
+    protected function authorizeArticleOwner(Article $article)
+    {
+        if (auth()->id() !== $article->user_id) {
+            abort(403, 'Non sei autorizzato a eliminare questo articolo.');
+        }
+    }
+
+
     public function destroy(Article $article){
+        $this->authorizeArticleOwner($article);
+
         $article->delete();
+
 
         session()->flash('success', 'Articolo cancellato con successo');
         return redirect()->route('articles.index');
