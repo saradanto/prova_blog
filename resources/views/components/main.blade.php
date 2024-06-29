@@ -14,7 +14,7 @@
 
         <x-navbar />
         <!-- Header-->
-        <header class="bg-primary bg-gradient text-white">
+        <header class="bg-primary bg-dark text-white">
             <div class="container px-4 text-center">
             <h1 class="fw-bolder">Welcome to BLOG</h1>
             <p class="lead">A functional Blog for random purposes</p>
