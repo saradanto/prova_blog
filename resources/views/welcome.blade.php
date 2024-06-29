@@ -13,7 +13,7 @@
                         <div class="card-body">
                           <h5 class="card-title">{{$article->title}}</h5>
                           <p class="card-text">{{Str::limit($article->body, 200, '...')}}</p>
-                          <a href="#" class="btn btn-primary">Apri articolo</a>
+                          <a href="{{route('articles.show', ['article' => $article])}}" class="btn btn-primary">Apri articolo</a>
                         </div>
                       </div>
 

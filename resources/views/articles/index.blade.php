@@ -41,8 +41,7 @@
                                 </td>
                                 <td>
                                     <button type="button" class="btn btn-link btn-sm btn-rounded"><a href="{{route('articles.edit', ['article'=> $article])}}"> Edit</a></button>
-                                    <button type="submit" class="btn btn-link btn-sm btn-rounded">
-                                        Show
+                                    <button type="button" class="btn btn-link btn-sm btn-rounded"><a href="{{route('articles.show', ['article'=> $article])}}" > Show</a>
                                     </button>
                                     <form action="{{route('articles.destroy', ['article' => $article])}}" method="POST">
                                         @method('DELETE')
