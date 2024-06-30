@@ -6,7 +6,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="{{route('articles.index')}}">Lista Articoli</a></li>
-                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('categories.index')}}">Lista Categorie</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li><br>
                 @guest
                     <li class="nav-item"><a class="nav-link" href="{{route('login')}}">Login</a></li>
