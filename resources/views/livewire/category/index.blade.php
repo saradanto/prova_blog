@@ -8,12 +8,18 @@
             <th scope="col">Azioni</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-          </tr>
-        </tbody>
-      </table>
+        @foreach ($categories as $category)
+            <tbody>
+                <tr>
+                <th scope="row">{{$category->id}}</th>
+                <td>{{$category->name}}</td>
+                <td>
+                    <a href="{{route('categories.edit', ['category' => $category])}}" class="btn btn-outline-warning">Edit</a>
+                    <a href="" class="btn btn-outline-danger">Delete</a>
+                </td>
+                </tr>
+            </tbody>
+
+        @endforeach
+    </table>
 </div>

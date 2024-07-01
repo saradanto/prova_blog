@@ -15,10 +15,14 @@ class Create extends Component
 
         $this->validate();
 
-        $categories = Category::create([
+        Category::create([
             'name' => $this->name
         ]);
+        $this->resetCategory();
 
+    }
+
+    public function resetCategory(){
         $this->name= '';
     }
 
