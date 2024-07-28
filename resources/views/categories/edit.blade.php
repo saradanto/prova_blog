@@ -1,3 +1,3 @@
 <x-main>
-    @livewire('category.edit', ['cateogory' => $category])
+    @livewire('category.edit', ['category' => $category])
 </x-main>

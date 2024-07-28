@@ -1,11 +1,6 @@
 <div>
     <section>
 
-        @if (session()->has('message'))
-            <div class="alert alert-success">
-                {{session('message')}}
-            </div>
-        @endif
 
         <div class="mb-md-5 mt-md-4 pb-5">
             <form class="containter mt-5" wire:submit.prevent="update">

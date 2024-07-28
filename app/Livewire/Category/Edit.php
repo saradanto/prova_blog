@@ -21,6 +21,10 @@ class Edit extends Component
         $this->category->update([
             'name' => $this->name
         ]);
+
+        session()->flash('status', 'Aggiornamento riuscito!');
+
+        return redirect()->route('categories.index');
     }
 
     public function render()
