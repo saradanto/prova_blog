@@ -24,29 +24,37 @@
 
                     <!-- Name input -->
                     <div data-mdb-input-init class="form-outline mb-4">
-                        <input type="text" id="title" class="form-control" name="title" />
                         <label class="form-label" for="title">Title</label>
+                        <input type="text" id="title" class="form-control" name="title" />
+
                     </div>
 
                     <!-- Message input -->
                     <div data-mdb-input-init class="form-outline mb-4">
-                        <textarea class="form-control" id="body" rows="4" name="body"></textarea>
                         <label class="form-label" for="body">Testo</label>
+                        <textarea class="form-control" id="body" rows="4" name="body"></textarea>
+
                     </div>
 
                     <!-- Checkbox -->
+                    @foreach ($categories as $category)
                     <div class="form-check mb-4">
                         <input
                         class="form-check-input me-2"
                         type="checkbox"
-                        value=""
-                        id="form4Example4"
-                        checked
+                        value="{{$category->id}}"
+                        id="category_id"
+                        name="categories[]"
+                        @if ($article->categories->contains($category->id))
+                            checked
+                        @endif
                         />
                         <label class="form-check-label" for="form4Example4">
-                        Categories
+                            {{$category->name}}
                         </label>
                     </div>
+                    @endforeach
+
 
                     <div class="mb-3 my-5">
                         <label for="image" class="form-label">Inserisci un'immagine</label>

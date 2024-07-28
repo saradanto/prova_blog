@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ArticleRequest;
 use App\Http\Requests\ArticleUpdateRequest;
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -18,7 +19,9 @@ class ArticleController extends Controller
 
     public function create(){
 
-        return view('articles.create');
+        $categories = Category::all();
+
+        return view('articles.create', compact('categories'));
 
     }
 
@@ -37,12 +40,16 @@ class ArticleController extends Controller
             'user_id'=> auth()->user()->id,
         ]);
 
+        $article->categories()->attach($request->categories);
+
         return redirect()->route('articles.index');
     }
 
     public function edit(Article $article){
 
-        return view('articles.edit', compact('article'));
+        $categories = Category::all();
+
+        return view('articles.edit', compact('article', 'categories'));
     }
 
     public function update(ArticleUpdateRequest $request, Article $article ){
