@@ -7,6 +7,7 @@
         <meta name="author" content="" />
         <title>BLOG</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
        @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     </head>
@@ -14,7 +15,7 @@
 
         <x-navbar />
         <!-- Header-->
-        <header class="bg-primary bg-dark text-white">
+        <header class="bg-primary bg-white text-black">
             <div class="container px-4 text-center">
             <h1 class="fw-bolder">Welcome to BLOG</h1>
             <p class="lead">A functional Blog for random purposes</p>
@@ -22,13 +23,14 @@
             </div>
         </header>
 
-            <div class="container my-5">
-                <div class="row">
-                    <div class="col-12">
-                        {{$slot}}
-                    </div>
+
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-12">
+                    {{$slot}}
                 </div>
             </div>
+        </div>
 
 
          <!-- Footer-->

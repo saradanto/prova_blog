@@ -25,14 +25,14 @@
                     <!-- Name input -->
                     <div data-mdb-input-init class="form-outline mb-4">
                         <label class="form-label" for="title">Title</label>
-                        <input type="text" id="title" class="form-control" name="title" />
+                        <input type="text" id="title" class="form-control" name="title" value=" {{$article->title}}" />
 
                     </div>
 
                     <!-- Message input -->
                     <div data-mdb-input-init class="form-outline mb-4">
                         <label class="form-label" for="body">Testo</label>
-                        <textarea class="form-control" id="body" rows="4" name="body"></textarea>
+                        <textarea class="form-control" id="body" rows="4" name="body">{{$article->body}}</textarea>
 
                     </div>
 
@@ -59,6 +59,10 @@
                     <div class="mb-3 my-5">
                         <label for="image" class="form-label">Inserisci un'immagine</label>
                         <input class="form-control" type="file" id="image" name="image">
+                        @if($article->image)
+                            <p class="mt-2">Immagine attuale: {{ $article->image }}</p>
+                            <img src="{{ asset('storage/images/' . basename($article->image)) }}" alt="Immagine articolo" class="img-thumbnail mt-2" style="max-width: 200px;">
+                        @endif
                     </div>
 
 

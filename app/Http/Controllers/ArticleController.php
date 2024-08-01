@@ -47,6 +47,8 @@ class ArticleController extends Controller
 
     public function edit(Article $article){
 
+        $this->authorizeArticleOwner($article);
+
         $categories = Category::all();
 
         return view('articles.edit', compact('article', 'categories'));
@@ -54,6 +56,7 @@ class ArticleController extends Controller
 
     public function update(ArticleUpdateRequest $request, Article $article ){
 
+        $this->authorizeArticleOwner($article);
 
 
         $path_image= $article->image;
@@ -69,6 +72,8 @@ class ArticleController extends Controller
 
         ]);
 
+        $article->categories()->attach($request->categories);
+
         return redirect()->route('articles.index');
 
 
@@ -77,7 +82,7 @@ class ArticleController extends Controller
     protected function authorizeArticleOwner(Article $article)
     {
         if (auth()->id() !== $article->user_id) {
-            abort(403, 'Non sei autorizzato a eliminare questo articolo.');
+            abort(403, "You're not authorize to delete this article");
         }
     }
 
